@@ -7,9 +7,10 @@
 
 int main() {
     std::cout << "Programa trabajando" << std::endl;
+
     try
     {
-        List<int>* integerList = new ListDE<int>();
+        /*List<int>* integerList = new ListDE<int>();
 
         //Probar el adicionar
         integerList->add(new int(1));
@@ -34,6 +35,9 @@ int main() {
 
        cout << (integerList->getPosition(new int (2))) << " ";
        cout << endl;
+         */
+
+
 
     }
     catch (const char* msg)
