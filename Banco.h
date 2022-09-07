@@ -80,6 +80,43 @@ public:
         }
     }
 
+    List<Cuenta>* darDeBajaMillonarios(){
+
+        List<Cuenta>* millonarios = new ListSE<Cuenta>();
+        float millon = 1000000;
+        for (int i = 0; i < this->lCuentas->getLength() ; ++i) {
+
+            if (this->lCuentas->getElement(i)->getSaldo() >= millon){
+                millonarios->add(this->lCuentas->getElement(i));
+                this->lCuentas->remove(i);
+            }
+        }
+        return millonarios;
+    }
+
+
+    void desplegarCuentas(){
+
+        for (int i = 0; i < this->lCuentas->getLength() ; ++i) {
+
+            cout << "No.ID: " << this->lCuentas->getElement(i)->getNoID() << "   Saldo: " << this->lCuentas->getElement(i)->getSaldo()<<endl;
+
+        }
+
+    }
+
+    void solicitudesEspera(){
+        if (!this->cSolicitudes->isEmpty()){
+            cout << "hay solicitudes en espera" << endl;
+        }
+        else{
+            cout << "sin solicitudes en espera" << endl;
+        }
+    }
+
+
+
+
 
 
 

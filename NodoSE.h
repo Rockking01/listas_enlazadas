@@ -17,6 +17,7 @@ protected:
     NodoSE<T>* siguiente;
 
 public:
+
     NodoSE(T* valor)
     {
         this->valor = valor;
@@ -47,6 +48,8 @@ public:
     {
         this->siguiente = siguiente;
     }
+
+
 };
 
 

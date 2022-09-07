@@ -82,7 +82,23 @@ public:
 
     virtual void remove(int pos)
     {
+        NodoSE<T>* pre = this->cabeza;
+        NodoSE<T>* cur = this->cabeza;
 
+        if(pos == 0){
+
+            cabeza = cabeza->getSiguiente();
+        }
+        else
+        {
+            for (int i = 0; i < pos; i++)
+            {
+                pre = cur;
+                cur = cur->getSiguiente();
+            }
+            pre->setSiguiente(cur->getSiguiente());
+        }
+        this->length--;
     }
 
     T* getElement(int pos)
