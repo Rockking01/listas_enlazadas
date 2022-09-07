@@ -89,6 +89,7 @@ public:
             if (this->lCuentas->getElement(i)->getSaldo() >= millon){
                 millonarios->add(this->lCuentas->getElement(i));
                 this->lCuentas->remove(i);
+                i--;
             }
         }
         return millonarios;

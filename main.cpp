@@ -19,7 +19,7 @@ int main() {
         banamex->adicionarCuenta(new Cuenta(3, "MA392", 2034943.1));
         banamex->adicionarCuenta(new Cuenta(4, "GR5471", 40365.1));
         banamex->adicionarCuenta(new Cuenta(5, "HP721", 124560.68));
-
+        banamex->adicionarCuenta(new Cuenta(6, "TA765", 1034943.1));
 
 
         banamex->adicionarSolictiud(new Solicitud("colegiatura colegio","AC235",3045.4));
