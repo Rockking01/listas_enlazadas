@@ -7,39 +7,34 @@
 
 
 #pragma once
+
 #include "List.h"
 #include "NodoSE.h"
 #include <iostream>
+
 using namespace std;
 
-template<class T> class ListSE : public List<T>
-{
+template<class T>
+class ListSE : public List<T> {
 protected:
-    NodoSE<T>* cabeza;
+    NodoSE<T> *cabeza;
 
 public:
-    ListSE() : List<T>(0)
-    {
+    ListSE() : List<T>(0) {
         this->cabeza = NULL;
     }
 
-    ~ListSE()
-    {
+    ~ListSE() {
 
     }
 
-    virtual void add(T* element)
-    {
-        NodoSE<T>* nuevo = new NodoSE<T>(element);
-        if (this->cabeza == NULL)
-        {
+    virtual void add(T *element) {
+        NodoSE<T> *nuevo = new NodoSE<T>(element);
+        if (this->cabeza == NULL) {
             this->cabeza = nuevo;
-        }
-        else
-        {
-            NodoSE<T>* temp = this->cabeza;
-            while (temp->getSiguiente() != NULL)
-            {
+        } else {
+            NodoSE<T> *temp = this->cabeza;
+            while (temp->getSiguiente() != NULL) {
                 temp = temp->getSiguiente();
             }
             temp->setSiguiente(nuevo);
@@ -47,25 +42,19 @@ public:
         this->length++;
     }
 
-    void insert(T* element, int pos)
-    {
-        if (pos < 0 || pos >= this->length)
-        {
+    void insert(T *element, int pos) {
+        if (pos < 0 || pos >= this->length) {
             throw "No se puede insertar el elemento porque la posicion es incorrecta";
         }
 
-        NodoSE<T>* nuevo = new NodoSE<T>(element);
-        if (pos == 0)
-        {
+        NodoSE<T> *nuevo = new NodoSE<T>(element);
+        if (pos == 0) {
             nuevo->setSiguiente(cabeza);
             cabeza = nuevo;
-        }
-        else
-        {
+        } else {
             int posTemp = 0;
-            NodoSE<T>* temp = this->cabeza;
-            while (posTemp < pos - 1)
-            {
+            NodoSE<T> *temp = this->cabeza;
+            while (posTemp < pos - 1) {
                 temp = temp->getSiguiente();
                 posTemp++;
             }
@@ -75,24 +64,19 @@ public:
         this->length++;
     }
 
-    void remove(T* element)
-    {
+    void remove(T *element) {
 
     }
 
-    virtual void remove(int pos)
-    {
-        NodoSE<T>* pre = this->cabeza;
-        NodoSE<T>* cur = this->cabeza;
+    virtual void remove(int pos) {
+        NodoSE<T> *pre = this->cabeza;
+        NodoSE<T> *cur = this->cabeza;
 
-        if(pos == 0){
+        if (pos == 0) {
 
             cabeza = cabeza->getSiguiente();
-        }
-        else
-        {
-            for (int i = 0; i < pos; i++)
-            {
+        } else {
+            for (int i = 0; i < pos; i++) {
                 pre = cur;
                 cur = cur->getSiguiente();
             }
@@ -101,30 +85,25 @@ public:
         this->length--;
     }
 
-    T* getElement(int pos)
-    {
-        if (pos < 0 || pos >= this->length)
-        {
+    T *getElement(int pos) {
+        // este metodo tiene una complejidad de O(n)
+        if (pos < 0 || pos >= this->length) {
             throw "Posicion incorrecta";
         }
 
         int posTemp = 0;
-        NodoSE<T>* temp = this->cabeza;
-        while (posTemp < pos)
-        {
+        NodoSE<T> *temp = this->cabeza;
+        while (posTemp < pos) {
             temp = temp->getSiguiente();
             posTemp++;
         }
         return temp->getValor();
     }
 
-    int getPosition(T* element)
-    {
+    int getPosition(T *element) {
         return -1;
     }
 };
-
-
 
 
 #endif //LISTAS_ENLAZADAS_LISTSE_H

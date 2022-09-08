@@ -3,16 +3,21 @@
 #include "Banco.h"
 #include <string>
 
-//Programa de Guillermo Garrido Torres
+//Autor Guillermo Garrido Torres
 //Matricula: A00835087
+
+/* programa de c++ que genera un sistema de banco el cual contiene cuentas y solicitudes, este se encarga de
+ * solucionarlas y actualizar los datos de sus usuarios, en este archivo main se instancia un banco y se le
+ * agregan cuentas y solicitudes, se hacen pruebas de todos los metodos implementados.
+ *
+ */
 
 int main() {
     std::cout << "Programa trabajando" << std::endl;
 
-    try
-    {
+    try {
 
-        Banco* banamex = new Banco();
+        Banco *banamex = new Banco();
 
         banamex->adicionarCuenta(new Cuenta(1, "AC235", 236));
         banamex->adicionarCuenta(new Cuenta(2, "AC465", 1906.54));
@@ -22,12 +27,12 @@ int main() {
         banamex->adicionarCuenta(new Cuenta(6, "TA765", 1034943.1));
 
 
-        banamex->adicionarSolictiud(new Solicitud("colegiatura colegio","AC235",3045.4));
-        banamex->adicionarSolictiud(new Solicitud("renta casa","HT3493",5500));
-        banamex->adicionarSolictiud(new Solicitud("pago libros","AC465",1205.7));
-        banamex->adicionarSolictiud(new Solicitud("buggatti","TA765",3000000.45));
-        banamex->adicionarSolictiud(new Solicitud("tennis","GR5471",87843.9));
-        banamex->adicionarSolictiud(new Solicitud("loteria","HP721",1000000));
+        banamex->adicionarSolictiud(new Solicitud("colegiatura colegio", "AC235", 3045.4));
+        banamex->adicionarSolictiud(new Solicitud("renta casa", "HT3493", 5500));
+        banamex->adicionarSolictiud(new Solicitud("pago libros", "AC465", 1205.7));
+        banamex->adicionarSolictiud(new Solicitud("buggatti", "TA765", 3000000.45));
+        banamex->adicionarSolictiud(new Solicitud("tennis", "GR5471", 87843.9));
+        banamex->adicionarSolictiud(new Solicitud("loteria", "HP721", 1000000));
 
         banamex->desplegarCuentas();
         banamex->solicitudesEspera();
@@ -35,24 +40,23 @@ int main() {
 
         banamex->atenderTodasLasSolicitudes();
 
-        List<Cuenta>* millonarios = banamex->darDeBajaMillonarios();
-        cout << "\n"<<endl;
+        List<Cuenta> *millonarios = banamex->darDeBajaMillonarios();
+        cout << "\n" << endl;
 
         banamex->desplegarCuentas();
         banamex->solicitudesEspera();
-        cout << "\n"<<endl;
-        cout << "Millonarios:"<<endl;
-        for (int i = 0; i < millonarios->getLength() ; ++i) {
+        cout << "\n" << endl;
+        cout << "Millonarios:" << endl;
+        for (int i = 0; i < millonarios->getLength(); ++i) {
 
-            cout << "No.ID: " << millonarios->getElement(i)->getNoID() << "   Saldo: " << millonarios->getElement(i)->getSaldo()<<endl;
+            cout << "No.ID: " << millonarios->getElement(i)->getNoID() << " |  Saldo: "
+                 << millonarios->getElement(i)->getSaldo() << endl;
 
         }
 
 
-
     }
-    catch (const char* msg)
-    {
+    catch (const char *msg) {
         cout << msg << endl;
     }
 

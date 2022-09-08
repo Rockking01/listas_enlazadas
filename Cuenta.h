@@ -6,8 +6,10 @@
 #define LISTAS_ENLAZADAS_CUENTA_H
 
 #pragma once
+
 #include <iostream>
 #include <string>
+
 using namespace std;
 
 class Cuenta {
@@ -17,25 +19,28 @@ protected:
     float saldo;
 
 public:
-    Cuenta(int noCuenta, string noID, float saldo){
+    Cuenta(int noCuenta, string noID, float saldo) {
         this->noCuenta = noCuenta;
         this->noID = noID;
         this->saldo = saldo;
     }
 
-    ~Cuenta(){
+    ~Cuenta() {
 
     }
 
-    string getNoID(){
+    string getNoID() {
+        // como es un getter tiene complejidad O(1)
         return this->noID;
     }
 
-    void setSaldo(float saldo){
+    void setSaldo(float saldo) {
+        // como es un setter tiene complejidad O(1)
         this->saldo = saldo;
     }
 
-    float getSaldo(){
+    float getSaldo() {
+        // como es un getter tiene complejidad O(1)
         return this->saldo;
     }
 };
