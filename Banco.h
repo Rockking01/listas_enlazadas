@@ -92,7 +92,7 @@ public:
     }
 
 
-    List<Cuenta> *darDeBajaMillonarios() {
+    List<Cuenta>* darDeBajaMillonarios() {
 
         // esta parte hace una comparacion de un cada valor de saldo de cada cuenta por una cantidad
         // recorre toda la lista enlazada, y cada que encuentra un match lo mete a otra lista y lo remueve
